@@ -46,8 +46,15 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ManUserLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManUserLog.Designer.cs">
+      <DependentUpon>ManUserLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManUserLogPpal.cs">
       <SubType>Form</SubType>
     </Compile>
