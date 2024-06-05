@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DataAccess">
-      <HintPath>..\..\source\repos\DataAccess\DataAccess\bin\Debug\DataAccess.dll</HintPath>
+      <HintPath>..\DataAccess\DataAccess\bin\Debug\DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTemplate.cs" />
     <Compile Include="UsuariosConectados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -52,7 +53,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="_ManUserLogAccesoADatos.cs" />
     <Compile Include="_ManUserLogLogica.cs" />
-    <Compile Include="AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

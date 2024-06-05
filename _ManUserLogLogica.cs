@@ -14,7 +14,7 @@ namespace ManUserLog
             return true;
         }
 
-        public List<Tables.UsuariosSys> ConsultaUsuarios() => this.cadProject.ConsultaUsuarios();
+        public List<UsuariosSys_UsuariosWin> ConsultaUsuarios() => this.cadProject.ConsultaUsuarios();
 
         public string DesbloqueaUsuario(string strLlave) => this.cadProject.DesbloqueaUsuario(strLlave);
     }

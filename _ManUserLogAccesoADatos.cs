@@ -1,4 +1,5 @@
 ﻿using MonitoringWorks.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,21 +9,21 @@ namespace ManUserLog
   public class _ManUserLogAccesoADatos
   {
         public SqlConnection cone = new SqlConnection();
-        public List<Tables.UsuariosSys> ConsultaUsuarios()
+        public List<UsuariosSys_UsuariosWin> ConsultaUsuarios()
         {
             string[] arrParam = new string[1];
-            string strSQL = "SELECT UsuariosSys.CodigoUsuario, IP, Puerto, ISNULL(UsuariosWin.CodigoUsuario, '@@@USER-NOT-FOUNT') as 'CodigoUsuario' FROM UsuariosSys LEFT JOIN " + "UsuariosWin ON UsuariosSys.Puerto = UsuariosWin.NoPuerto WHERE IP <> '' AND Puerto <> 0";
+            string strSQL = "SELECT * FROM UsuariosSys LEFT JOIN UsuariosWin ON UsuariosSys.Puerto = UsuariosWin.NoPuerto WHERE IP <> '' AND Puerto <> 0";
             SqlDataReader sqlDataReader = DR.SelectDR1(General.sysDBInUse, strSQL, arrParam, CommandBehavior.SingleResult);
-            List<Tables.UsuariosSys> usuariosSysList = new List<Tables.UsuariosSys>();
+            List<UsuariosSys_UsuariosWin> usuariosSysList = new List<UsuariosSys_UsuariosWin>();
             if (!ModGeneral.ExisteError() && sqlDataReader != null)
             {
                 while (sqlDataReader.Read())
-                    usuariosSysList.Add(new Tables.UsuariosSys()
+                    usuariosSysList.Add(new UsuariosSys_UsuariosWin()
                     {
                         CodigoUsuario = sqlDataReader["CodigoUsuario"].ToString(),
                         IP = sqlDataReader["IP"].ToString(),
                         Puerto = (int)sqlDataReader["Puerto"],
-                        CodigoUsuarioWin = sqlDataReader[3].ToString()
+                        CodigoUsuarioWin = sqlDataReader["CodigoUsuarioWin"].Equals(DBNull.Value) ? "@@@USER-NOT-FOUNT" : ((string)sqlDataReader["CodigoUsuarioWin"]).Trim()
                     });
             }
             return usuariosSysList;
