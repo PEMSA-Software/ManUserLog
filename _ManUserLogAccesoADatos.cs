@@ -13,7 +13,7 @@ namespace ManUserLog
         {
             string[] arrParam = new string[1];
             string strSQL = "SELECT * FROM UsuariosSys LEFT JOIN UsuariosWin ON UsuariosSys.Puerto = UsuariosWin.NoPuerto WHERE IP <> '' AND Puerto <> 0";
-            SqlDataReader sqlDataReader = DR.SelectDR1(General.sysDBInUse, strSQL, arrParam, CommandBehavior.SingleResult);
+            SqlDataReader sqlDataReader = ModGeneral.dr_dr(strSQL, arrParam, CommandBehavior.SingleResult);
             List<UsuariosSys_UsuariosWin> usuariosSysList = new List<UsuariosSys_UsuariosWin>();
             if (!ModGeneral.ExisteError() && sqlDataReader != null)
             {
