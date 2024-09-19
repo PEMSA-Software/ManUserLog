@@ -38,10 +38,10 @@ namespace ManUserLog
         private void Form1_Load(object sender, EventArgs e)
         {
             this.SetDGProperties();
-            List<UsuariosSys_UsuariosWin> usuariosSysList = this.cloProject.ConsultaUsuarios();
+            List<Models.UsuariosSys_UsuariosWin> usuariosSysList = this.cloProject.ConsultaUsuarios();
             if (usuariosSysList.Count == 0)
                 return;
-            foreach (UsuariosSys_UsuariosWin usuariosSys in usuariosSysList)
+            foreach (Models.UsuariosSys_UsuariosWin usuariosSys in usuariosSysList)
                 this.dgvUsuarios.Rows.Add((object[])new string[4]
                 {
                     usuariosSys.CodigoUsuario,

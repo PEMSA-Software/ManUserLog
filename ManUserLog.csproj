@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTemplate.cs" />
     <Compile Include="UsuariosConectados.cs">
       <SubType>Form</SubType>
     </Compile>

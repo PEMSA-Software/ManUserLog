@@ -9,16 +9,16 @@ namespace ManUserLog
   public class _ManUserLogAccesoADatos
   {
         public SqlConnection cone = new SqlConnection();
-        public List<UsuariosSys_UsuariosWin> ConsultaUsuarios()
+        public List<Models.UsuariosSys_UsuariosWin> ConsultaUsuarios()
         {
             string[] arrParam = new string[1];
             string strSQL = "SELECT * FROM UsuariosSys LEFT JOIN UsuariosWin ON UsuariosSys.Puerto = UsuariosWin.NoPuerto WHERE IP <> '' AND Puerto <> 0";
             SqlDataReader sqlDataReader = ModGeneral.dr_dr(strSQL, arrParam, CommandBehavior.SingleResult);
-            List<UsuariosSys_UsuariosWin> usuariosSysList = new List<UsuariosSys_UsuariosWin>();
+            List<Models.UsuariosSys_UsuariosWin> usuariosSysList = new List<Models.UsuariosSys_UsuariosWin>();
             if (!ModGeneral.ExisteError() && sqlDataReader != null)
             {
                 while (sqlDataReader.Read())
-                    usuariosSysList.Add(new UsuariosSys_UsuariosWin()
+                    usuariosSysList.Add(new Models.UsuariosSys_UsuariosWin()
                     {
                         CodigoUsuario = sqlDataReader["CodigoUsuario"].ToString(),
                         IP = sqlDataReader["IP"].ToString(),
